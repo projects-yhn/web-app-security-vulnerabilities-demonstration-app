@@ -1,0 +1,11 @@
+-- CREATE TABLE IF NOT EXISTS vulnerabilities_configuration
+-- (
+--     id bigserial NOT NULL,
+--     type text NOT NULL,
+--     is_vulnerable boolean NOT NULL,
+--     updated_ts timestamp with time zone NOT NULL,
+--     PRIMARY KEY (id)
+--     );
+--
+-- ALTER TABLE vulnerabilities_configuration
+--     OWNER to "cySec";

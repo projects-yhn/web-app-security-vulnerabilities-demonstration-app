@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vulnerable_web_app_db?useSSL=false
+    username: cySec
+    password: cySec
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: validate
+  flyway:
+    locations: classpath:db/migration

