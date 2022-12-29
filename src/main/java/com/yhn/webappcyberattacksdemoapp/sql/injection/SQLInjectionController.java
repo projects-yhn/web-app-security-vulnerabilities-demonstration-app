@@ -19,4 +19,10 @@ public class SQLInjectionController {
     public ResponseEntity<Object> getUserDataByUsername(@RequestParam String username) {
         return ResponseEntity.ok(sqlInjectionService.getUserInfoByUsernameSqlInjection(username));
     }
+
+    @GetMapping("/union-attack/movie")
+    public ResponseEntity<Object> getMovieUnionWithUsers(@RequestParam String title) {
+        Object response = sqlInjectionService.getMovieUnionUsersTableSqlInjection(title);
+        return ResponseEntity.ok(response);
+    }
 }

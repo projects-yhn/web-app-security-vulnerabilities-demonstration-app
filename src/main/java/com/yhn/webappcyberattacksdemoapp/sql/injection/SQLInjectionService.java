@@ -1,5 +1,6 @@
 package com.yhn.webappcyberattacksdemoapp.sql.injection;
 
+import com.yhn.webappcyberattacksdemoapp.sql.injection.model.MovieDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -48,6 +49,36 @@ public class SQLInjectionService {
                 users.add(user);
             }
             return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Object getMovieUnionUsersTableSqlInjection(String title) {
+        List<MovieDto> movies = new ArrayList<>();
+
+        try (Connection dbConnection = dataSource.getConnection()) {
+
+            Statement statement = dbConnection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM sql_injection_movies WHERE title = '" + title + "'");
+            while (resultSet.next()) {
+
+                Long id = resultSet.getLong("id");
+                String movieTitle = resultSet.getString("title");
+                String genre = resultSet.getString("genre");
+                Integer year = resultSet.getInt("year");
+                String director = resultSet.getString("director");
+
+                MovieDto movieDto = new MovieDto();
+                movieDto.setId(id);
+                movieDto.setTitle(movieTitle);
+                movieDto.setDirector(director);
+                movieDto.setYear(year);
+                movieDto.setGenre(genre);
+                movies.add(movieDto);
+            }
+            return movies;
         } catch (SQLException e) {
             e.printStackTrace();
         }

