@@ -55,7 +55,7 @@ public class SQLInjectionService {
         return null;
     }
 
-    public Object getMovieUnionUsersTableSqlInjection(String title) {
+    public List<MovieDto> getMoviesByTitle(String title) {
         List<MovieDto> movies = new ArrayList<>();
 
         try (Connection dbConnection = dataSource.getConnection()) {
@@ -63,20 +63,7 @@ public class SQLInjectionService {
             Statement statement = dbConnection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM sql_injection_movies WHERE title = '" + title + "'");
             while (resultSet.next()) {
-
-                Long id = resultSet.getLong("id");
-                String movieTitle = resultSet.getString("title");
-                String genre = resultSet.getString("genre");
-                Integer year = resultSet.getInt("year");
-                String director = resultSet.getString("director");
-
-                MovieDto movieDto = new MovieDto();
-                movieDto.setId(id);
-                movieDto.setTitle(movieTitle);
-                movieDto.setDirector(director);
-                movieDto.setYear(year);
-                movieDto.setGenre(genre);
-                movies.add(movieDto);
+                movies.add(getMovieDtoFromResultSet(resultSet));
             }
             return movies;
         } catch (SQLException e) {
@@ -84,4 +71,39 @@ public class SQLInjectionService {
         }
         return null;
     }
+
+    public List<MovieDto> getAllMovies() {
+        List<MovieDto> movies = new ArrayList<>();
+
+        try (Connection dbConnection = dataSource.getConnection()) {
+
+            Statement statement = dbConnection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM sql_injection_movies");
+            while (resultSet.next()) {
+                movies.add(getMovieDtoFromResultSet(resultSet));
+            }
+            return movies;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private MovieDto getMovieDtoFromResultSet(ResultSet resultSet) throws SQLException {
+        Long id = resultSet.getLong("id");
+        String movieTitle = resultSet.getString("title");
+        String genre = resultSet.getString("genre");
+        Integer year = resultSet.getInt("year");
+        String director = resultSet.getString("director");
+
+        MovieDto movieDto = new MovieDto();
+        movieDto.setId(id);
+        movieDto.setTitle(movieTitle);
+        movieDto.setDirector(director);
+        movieDto.setYear(year);
+        movieDto.setGenre(genre);
+        return movieDto;
+    }
+
+
 }
