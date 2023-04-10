@@ -1,0 +1,125 @@
+GET http://localhost:8080/xss/stored/posts
+
+HTTP/1.1 200
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 10 Apr 2023 16:42:10 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+  "posts": [
+    {
+      "id": 3,
+      "title": "Invest money",
+      "content": "To invest money you should give more then one percent of yourself. Every year millions of people go to USA to accomplish their dream.",
+      "userId": 1,
+      "userProfilePicture": "/image1",
+      "userNames": "Stefan Karaivanov",
+      "creationTs": "2023-04-09T21:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Eco cars",
+      "content": "Ecologic crises comes. We should do something to prevent it. .",
+      "userId": 2,
+      "userProfilePicture": "/image/2",
+      "userNames": "Tom Jeahrein",
+      "creationTs": "2023-04-09T21:00:00Z"
+    },
+    {
+      "id": 5,
+      "title": "The millionaire game",
+      "content": "How to be a milliner. The game which gives a lot of money to gamers.",
+      "userId": 3,
+      "userProfilePicture": "/image/3",
+      "userNames": "Mihail Kanchev",
+      "creationTs": "2023-04-09T21:00:00Z"
+    }
+  ]
+}
+
+Response code: 200; Time: 318ms; Content length: 737 bytes
+
+
+GET http://localhost:8080/xss/stored/posts/3
+
+HTTP/1.1 200
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 10 Apr 2023 17:03:24 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+  "id": 3,
+  "title": "Invest money",
+  "content": "To invest money you should give more then one percent of yourself. Every year millions of people go to USA to accomplish their dream.",
+  "userId": 1,
+  "userProfilePicture": "/image1",
+  "userNames": "Stefan Karaivanov",
+  "creationTs": "2023-04-09T21:00:00Z",
+  "comments": [
+    {
+      "id": 1,
+      "userId": 5,
+      "userProfilePicture": "/image/5",
+      "userNames": "Strahil Carlson",
+      "content": "This post is not useful.",
+      "creationTs": "2023-04-09T21:00:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 6,
+      "userProfilePicture": "/image/6",
+      "userNames": "Maria G",
+      "content": "Not bad.",
+      "creationTs": "2023-04-09T21:00:00Z"
+    }
+  ]
+}
+
+Response code: 200; Time: 213ms; Content length: 586 bytes
+
+
+POST http://localhost:8080/xss/stored/posts/3/comments
+Content-Type: application/json
+
+{"comment": "alert('Yalco')", "userId": 9, "userNames": "Fake faking", "userProfilePicture": "fake"}
+
+
+HTTP/1.1 200
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 10 Apr 2023 18:05:34 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+[
+  {
+    "id": 1,
+    "userId": 5,
+    "userProfilePicture": "/image/5",
+    "userNames": "Strahil Carlson",
+    "content": "This post is not useful.",
+    "creationTs": "2023-04-09T21:00:00Z"
+  },
+  {
+    "id": 2,
+    "userId": 6,
+    "userProfilePicture": "/image/6",
+    "userNames": "Maria G",
+    "content": "Not bad.",
+    "creationTs": "2023-04-09T21:00:00Z"
+  },
+  {
+    "id": 8,
+    "userId": 9,
+    "userProfilePicture": "fake",
+    "userNames": "Fake faking",
+    "content": "alert('Yalco')",
+    "creationTs": "2023-04-10T18:05:34.650069100Z"
+  }
+]
+
+Response code: 200; Time: 285ms; Content length: 434 bytes
