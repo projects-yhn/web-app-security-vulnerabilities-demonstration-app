@@ -12,5 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Product")
 public class XXEProductRequest {
     private String name;
+    private String description;
+    private Double price;
     private String category;
 }

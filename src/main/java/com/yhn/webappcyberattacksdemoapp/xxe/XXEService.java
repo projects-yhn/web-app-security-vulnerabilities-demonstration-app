@@ -13,6 +13,7 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import java.io.StringReader;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,9 +56,18 @@ public class XXEService {
             e.printStackTrace();
         }
 
-        product.setCategory(xxeProductRequest.getCategory());
-        product.setName(xxeProductRequest.getName());
-
+        if (xxeProductRequest.getCategory() != null) {
+            product.setCategory(xxeProductRequest.getCategory());
+        }
+        if (xxeProductRequest.getName() != null) {
+            product.setName(xxeProductRequest.getName());
+        }
+        if (xxeProductRequest.getDescription() != null) {
+            product.setDescription(xxeProductRequest.getDescription());
+        }
+        if (xxeProductRequest.getPrice() != null) {
+            product.setPrice(BigDecimal.valueOf(xxeProductRequest.getPrice()));
+        }
         Product savedProduct  = productRepository.save(product);
 
         return new XXEProductResponse(savedProduct.getId(), savedProduct.getName(), savedProduct.getCategory(),

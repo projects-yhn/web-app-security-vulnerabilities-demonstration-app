@@ -22,6 +22,16 @@
     margin: 1px;
     border: 1px solid red;
 }
+.productData{
+    margin: 3px;
+    border: 1px solid cadetblue;
+}
+
+.product{
+    padding: 1px;
+    margin: 1px;
+    border: 1px solid red;
+}
 
 .tooltip {
     position: relative;
@@ -67,3 +77,48 @@
     visibility: visible;
     opacity: 1;
 }
+
+.productImage {
+    border: 2px solid blue;
+    text-align: left;
+}
+
+.productName{
+    font-size: 26px;
+    font-weight: bold;
+    border: 2px solid deeppink;
+}
+
+.productNameContainer{
+    border: 2px solid green;
+    display: inline-block;
+
+}
+
+.price{
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    border: 2px solid darkblue;
+}
+
+.priceContainer{
+    border: 2px solid orange;
+    display: inline-block;
+
+}
+
+.description{
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    border: 2px solid darkred;
+}
+
+.descriptionContainer{
+    border: 2px solid orange;
+    display: inline-block;
+}
+/*#xxe-injection-product-container {*/
+/*    display: block;*/
+/*}*/
