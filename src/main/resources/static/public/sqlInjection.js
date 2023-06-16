@@ -1,5 +1,4 @@
 const APP_URL = 'http://localhost:8080'
-console.log("aaaaaaaaaaaaaaaaaaaaa")
 let movies = null;
 const container = document.getElementById("sql-injection-container");
 const searchButton = document.getElementById("search-button");
@@ -29,8 +28,13 @@ const getAllMovies = () => {
 }
 
 const searchMovie  = (movieTitle) => {
-    fetch(APP_URL + `/sql-injection/union-attack/movie?title=${movieTitle}`)
-        .then(resp => resp.json())
+    fetch(APP_URL + `/sql-injection/union-attack/movie?title=${movieTitle}`, {method: 'GET', redirect: 'follow'})
+        .then(resp => {
+            if (resp.redirected) {
+                window.location.href = resp.url;
+            }
+            return resp.json()
+        })
         .then(moviesJson => movies = moviesJson)
         .then(voidPromise => displayMovies(movies, container))
         .then(p => console.log(movies))
@@ -53,7 +57,6 @@ const displayMovies = (movies, container) => {
     }
     container.appendChild(moviesContainer);
 }
-
 
 
 getAllMovies();

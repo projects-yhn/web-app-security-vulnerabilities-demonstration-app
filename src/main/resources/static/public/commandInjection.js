@@ -9,8 +9,13 @@ const getDirectoryContent = specificPath => {
     const queryParamStr = window.location.search;
     const url = APP_URL + "/command-injection/files" + (queryParamStr ? queryParamStr : '');
     console.log(url)
-    fetch(url)
-        .then(resp => resp.json())
+    fetch(url, {method: 'GET', redirect: 'follow'})
+        .then(resp => {
+            if (resp.redirected) {
+                window.location.href = resp.url;
+            }
+            return resp.json();
+        })
         .then(respJson => {
             rootPath = respJson.path;
             files = respJson.files;
@@ -102,8 +107,13 @@ const downloadFile = event => {
         "filePath": fileDownloadPath
     });
     fetch(APP_URL + "/command-injection/files/file",
-        {method: 'POST', headers: headers, body: reqBody})
-        .then(resp => resp.json())
+        {method: 'POST', headers: headers, body: reqBody, redirect: 'follow'})
+        .then(resp => {
+            if (resp.redirected) {
+                window.location.href = resp.url;
+            }
+            return resp.json();
+        })
         .then(documentResp => prepareAndDownloadFile(documentResp, selectedFileName))
         .catch(console.log);
 }
