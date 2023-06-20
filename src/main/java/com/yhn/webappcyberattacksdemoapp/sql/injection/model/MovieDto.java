@@ -13,4 +13,5 @@ public class MovieDto {
     private String director;
     private Integer year;
     private String genre;
+    private String imageUrl;
 }

@@ -5,6 +5,7 @@
     <title>Title</title>
     <script src="sqlInjection.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sqlInjection.css">
     <link rel="stylesheet" href="side-nav-style.css">
 </head>
 <body>
@@ -30,13 +31,15 @@
             </ul>
         </nav>
         <main class="web-attacks-container">
-            <div>
+            <div class="progress-and-help">
+                <div class="tooltip" id="sqli-hints">Hints
+                    <span class="tooltiptext" id="hint-text"></span>
+                </div>
+            </div>
+            <div class="movieSearchBox">
                 <form>
                     <input type="text" id="search-input"/>
                     <button type="button" id="search-button">Search</button>
-                    <div class="tooltip" id="sqli-hints">Hints
-                        <span class="tooltiptext" id="hint-text"></span>
-                    </div>
                 </form>
                 <div id="sql-injection-container">
                 </div>

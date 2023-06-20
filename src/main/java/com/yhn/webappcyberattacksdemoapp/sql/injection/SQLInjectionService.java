@@ -95,6 +95,7 @@ public class SQLInjectionService {
         String genre = resultSet.getString("genre");
         Integer year = resultSet.getInt("year");
         String director = resultSet.getString("director");
+        String imageUrl = resultSet.getString("imageUrl");
 
         MovieDto movieDto = new MovieDto();
         movieDto.setId(id);
@@ -102,6 +103,7 @@ public class SQLInjectionService {
         movieDto.setDirector(director);
         movieDto.setYear(year);
         movieDto.setGenre(genre);
+        movieDto.setImageUrl(imageUrl);
         return movieDto;
     }
 

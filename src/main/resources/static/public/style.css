@@ -1,11 +1,12 @@
-#header-container{
+#header-container {
     border: 2px solid orange;
 }
 
-.header-navi{
+.header-navi {
     border: 2px solid green;
 
 }
+
 .myDiv {
     /*width: 340px;*/
     background-color: blue;
@@ -13,119 +14,145 @@
     border: 1px solid black;
 }
 
-.movieData{
+/*.movieData {*/
+/*    margin: 3px;*/
+/*    border: 3px solid cadetblue;*/
+/*}*/
+
+/*.movie {*/
+/*    padding: 1px;*/
+/*    border: 3px solid grey;*/
+/*    height: 7em;*/
+/*    margin: 1em;*/
+/*}*/
+
+/*.movies {*/
+/*    text-align: left;*/
+/*    border: 3px dashed saddlebrown;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    position: absolute;*/
+/*}*/
+
+/*.movieSearchBox {*/
+/*    border: 3px solid black;*/
+/*    text-align: center;*/
+/*}*/
+/*.movieSearchBox input{*/
+/*    width: 70%;*/
+/*}*/
+
+/*.progress-and-help{*/
+/*    border: 3px solid darkblue;*/
+/*    text-align: right;*/
+/*}*/
+
+.productData {
     margin: 3px;
     border: 1px solid cadetblue;
 }
-.movie{
+
+.product {
     padding: 1px;
     margin: 1px;
     border: 1px solid red;
 }
-.productData{
-    margin: 3px;
-    border: 1px solid cadetblue;
-}
 
-.product{
-    padding: 1px;
-    margin: 1px;
-    border: 1px solid red;
-}
+/*.tooltip {*/
+/*    background-color: grey;*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    border-bottom: 1px dotted black; !* If you want dots under the hoverable text *!*/
+/*}*/
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-}
-/* Tooltip text */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 700px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
+/*!* Tooltip text *!*/
+/*.tooltip .tooltiptext {*/
+/*    visibility: hidden;*/
+/*    width: 700px;*/
+/*    background-color: #555;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    padding: 5px 0;*/
+/*    border-radius: 6px;*/
 
-    /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
+/*    !* Position the tooltip text *!*/
+/*    position: absolute;*/
+/*    z-index: 1;*/
+/*    bottom: 125%;*/
+/*    right: 50%;*/
+/*    margin-right: -60px;*/
 
-    /* Fade in tooltip */
-    opacity: 0;
-    transition: opacity 0.3s;
-}
+/*    !* Fade in tooltip *!*/
+/*    opacity: 0;*/
+/*    transition: opacity 0.3s;*/
+/*}*/
 
-/* Tooltip arrow */
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 10%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
+/*!* Tooltip arrow *!*/
+/*.tooltip .tooltiptext::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    right: 10%;*/
+/*    margin-right: -5px;*/
+/*    border-width: 5px;*/
+/*    border-style: solid;*/
+/*    border-color: #555 transparent transparent transparent;*/
+/*}*/
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
+/*!* Show the tooltip text when you mouse over the tooltip container *!*/
+/*.tooltip:hover .tooltiptext {*/
+/*    visibility: visible;*/
+/*    opacity: 1;*/
+/*}*/
 
 .productImage {
     border: 2px solid blue;
     text-align: left;
 }
 
-.productName{
+.productName {
     font-size: 26px;
     font-weight: bold;
     border: 2px solid deeppink;
 }
 
-.productNameContainer{
+.productNameContainer {
     border: 2px solid green;
     display: inline-block;
 
 }
 
-.price{
+.price {
     font-size: 20px;
     color: red;
     font-weight: bold;
     border: 2px solid darkblue;
 }
 
-.priceContainer{
+.priceContainer {
     border: 2px solid orange;
     display: inline-block;
 
 }
 
-.description{
+.description {
     font-size: 20px;
     color: black;
     font-weight: bold;
     border: 2px solid darkred;
 }
 
-.descriptionContainer{
+.descriptionContainer {
     border: 2px solid orange;
     display: inline-block;
 }
 
-.postData{
+.postData {
     margin: 3px;
     border: 1px solid cadetblue;
 }
 
-.post{
+.post {
     padding: 1px;
     margin: 1px;
     border: 1px solid red;
