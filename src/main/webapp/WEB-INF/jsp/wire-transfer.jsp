@@ -8,9 +8,9 @@
 <div>
     <nav class="topnav">
         <ul>
-            <li><a href="sss">Ala Bala</a></li>
+            <li><a href="sss">Progress</a></li>
             <li><a href="ddd">Profiles</a></li>
-            <li><a href="ddd">Stats</a></li>
+            <li><a href="ddd">Settings</a></li>
         </ul>
     </nav>
     <div class="attack-demo-window">
@@ -22,7 +22,7 @@
                 <li><a href="/public/pathTraversal.html"> Path Traversal</a></li>
                 <li><a href="/xsrf/online-banking">CSRF/XSRF</a></li>
                 <li><a href="/public/xssStored.html">XSS - Stored</a></li>
-                <li><a href="/public/xssReflected.html"> XSS - Reflected</a></li>
+                <li><a href="/xss/reflected/server-side/search-posts"> XSS - Reflected</a></li>
                 <li><a href="/public/xxeInjection.html">XXE Injection</a></li>
             </ul>
         </nav>

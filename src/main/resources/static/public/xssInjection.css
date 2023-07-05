@@ -1,0 +1,138 @@
+.xssPostsContainer{
+}
+
+.xssPost{
+    border: 2px solid lightblue;
+    margin: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.xssPost:hover{
+    box-shadow: 2px 3px 0 0 gray;
+}
+
+.xssPostTitle{
+    padding: 5px;
+    border-bottom: 2px solid lightgrey;
+}
+
+.xssPostAuthor{
+    border-bottom: 2px solid lightgrey;
+    padding: 5px;
+    display: inline;
+}
+
+.xssPostContent{
+    /*border: 2px dot-dash darkblue;*/
+    padding: 5px;
+}
+
+.selectedXssPostContainer{
+    border: 2px solid lightblue;
+    margin: 10px 10px 20px 10px;
+
+}
+
+.selectedXssPostContainer:hover{
+    box-shadow: 2px 3px 0 0 gray;
+}
+
+.selectedXssPostTitle{
+    border-bottom: 2px solid lightgrey;
+    margin: 2px;
+    padding: 5px 5px 5px 10px;
+
+}
+.selectedXssPostContent{
+    /*border: 3px solid greenyellow;*/
+    margin: 2px;
+    padding: 5px 5px 5px 10px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.selectedXssPostDate{
+    /*border: 3px solid red;*/
+    margin: 2px;
+    padding: 2px;
+    text-align: right;
+}
+
+.selectedXssPostAuthor{
+    /*border: 3px solid darkblue;*/
+    margin: 2px;
+    padding: 2px;
+    text-align: right;
+}
+
+#selectedXssPostCommentsContainer{
+    /*border: 3px solid yellow;*/
+    margin: 2px;
+    padding: 2px 2px 2px 20px;
+}
+.selectedXssPostComment{
+    /*border: 3px solid purple;*/
+    margin: 2px;
+    padding: 2px;
+}
+.selectedXssPostCommentAuthor{
+    /*border: 3px solid greenyellow;*/
+    margin: 2px;
+    padding: 2px;
+}
+.selectedXssPostComment{
+    border: 3px solid #f6765e;
+    margin: 2px 2px 10px;
+    padding: 2px;
+}
+.selectedXssPostComment:hover{
+    box-shadow: 2px 3px 0 0 gray;
+}
+.selectedXssPostCommentContent{
+    /*border: 3px solid darkblue;*/
+    margin: 2px;
+    padding: 2px;
+    font-size: 16px;
+}
+.selectedXssPostCommentDate{
+    /*border: 3px solid darkblue;*/
+    margin: 2px;
+    padding: 2px;
+    text-align: right;
+}
+.addCommentForm{
+    /*border: 3px solid yellow;*/
+    margin: 2px;
+    padding: 2px 2px 2px 20px;
+    text-align: center;
+}
+.newXSSCommentInput{
+    height: 50px;
+    width: 300px;
+}
+.newXSSCommentButton{
+    height: 50px;
+    margin: 5px 10px;
+    padding: 5px;
+}
+
+.xss-reflected-container{
+    /*border: 3px solid crimson;*/
+    text-align: center;
+    margin: 20px;
+}
+.xss-reflected-title{
+    font-size: 20px;
+    margin: 10px;
+}
+.xss-reflected-search-input{
+    height: 40px;
+    width: 70%;
+}
+
+.xss-reflected-button{
+    height: 40px;
+    width: 5%;
+
+}

@@ -1,7 +1,10 @@
 const loggedUserNames = 'John Doe';
 const loggedUserId = 'attacker';
-
 const APP_URL = 'http://localhost:8080';
+const hintText = document.getElementById("hint-text");
+const xssiHint = "To successfully execute a stored XSS attack you must send malicious javascipt code or HTML code. Insert<><img src=1 onerror=alert(document.cookie)> as a comment and see the results.";
+hintText.textContent = xssiHint;
+
 const container = document.getElementById("xss-stored-post-container");
 let post = {
     id: null,
@@ -49,37 +52,41 @@ const displayPost = () => {
     // image.src = post.userProfilePicture;
     // imageContainer.appendChild(image);
     const postContainer = document.createElement('div');
+    postContainer.className = "selectedXssPostContainer";
     const postTitle = document.createElement('h2');
     postTitle.innerText = post.title;
-    postTitle.className = 'title';
+    postTitle.className = 'selectedXssPostTitle';
     postContainer.appendChild(postTitle);
 
     const postContent = document.createElement('p');
-    postContent.className = 'content';
+    postContent.className = 'selectedXssPostContent';
     postContent.innerText = post.content;
     postContainer.appendChild(postContent)
 
     const postCreationDate = document.createElement('p');
-    postCreationDate.className = 'signature';
+    postCreationDate.className = 'selectedXssPostDate';
     postCreationDate.innerText = post.creationTs;
     postContainer.appendChild(postCreationDate);
 
     const postCreatorSignature = document.createElement('p');
-    postCreatorSignature.className = 'signature';
+    postCreatorSignature.className = 'selectedXssPostAuthor';
     postCreatorSignature.innerText = post.userNames;
     postContainer.appendChild(postCreatorSignature);
 
     const commentsContainer = document.createElement('div');
-    commentsContainer.id = 'commentsContainer';
+    commentsContainer.id = 'selectedXssPostCommentsContainer';
     attachComments(post.comments, commentsContainer);
     const addCommentForm = document.createElement('form');
+    addCommentForm.className = "addCommentForm";
     addCommentForm.addEventListener('submit', addNewComment)
     const addCommentInput = document.createElement('input');
     addCommentInput.type = 'textarea';
     addCommentInput.name = 'newComment';
+    addCommentInput.className = "newXSSCommentInput";
     const submitButton = document.createElement('input');
     submitButton.type = 'submit';
-    submitButton.value = 'Add Cmment Baby';
+    submitButton.value = 'Add Comment';
+    submitButton.className = "newXSSCommentButton";
     addCommentForm.appendChild(addCommentInput);
     addCommentForm.appendChild(submitButton);
 
@@ -90,26 +97,26 @@ const displayPost = () => {
 
 const attachComments = (comments, commentsContainer) => {
     if (!commentsContainer) {
-        commentsContainer = document.getElementById('commentsContainer');
+        commentsContainer = document.getElementById('selectedXssPostCommentsContainer');
     }
     commentsContainer.innerHTML = '';
     for (const comment of comments) {
         const commentContainer = document.createElement('div');
-        commentContainer.className = 'comment';
+        commentContainer.className = 'selectedXssPostComment';
 
         const commentAuthor = document.createElement('h5');
         commentAuthor.innerText = comment.userNames;
-        commentAuthor.className = 'commentSignature';
+        commentAuthor.className = 'selectedXssPostCommentAuthor';
         commentContainer.appendChild(commentAuthor);
 
         const commentContent = document.createElement('p');
         commentContent.innerHTML = comment.content;
-        commentContent.className = 'commentContent';
+        commentContent.className = 'selectedXssPostCommentContent';
         commentContainer.appendChild(commentContent);
 
         const commentCreationDate = document.createElement('div');
         commentCreationDate.innerText = comment.creationTs;
-        commentCreationDate.className = 'commentDate';
+        commentCreationDate.className = 'selectedXssPostCommentDate';
         commentContainer.appendChild(commentCreationDate);
         commentsContainer.appendChild(commentContainer);
     }

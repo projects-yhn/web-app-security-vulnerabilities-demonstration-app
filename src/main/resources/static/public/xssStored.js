@@ -16,26 +16,41 @@ const getAllPosts = () => {
 const displayPostsAsList = (posts, container) => {
     container.innerHTML = "";
     const postsContainer = document.createElement("div");
-    for (const p of posts) {
-        const pContainer = document.createElement("div");
+    postsContainer.className = "xssPostsContainer"
 
-        pContainer.className = "post";
-        for (const key in p) {
-            const pDataSpan = document.createElement("span");
-            pDataSpan.textContent = p[key];
-            pDataSpan.className = "postData";
-            pContainer.appendChild(pDataSpan);
-        }
-        const id = p["id"];
-
+    for(const p of posts) {
+        const pContainer = preparePostContainer(p);
         pContainer.addEventListener('click', () =>
         {
-            window.location = `${postPath}?postId=${id}`;
+            window.location = `${postPath}?postId=${p.id}`;
         });
-
         postsContainer.appendChild(pContainer);
     }
     container.appendChild(postsContainer);
+
+}
+
+const preparePostContainer = post => {
+    const postContainer = document.createElement("div");
+    postContainer.className = "xssPost";
+
+    const postTitle = document.createElement("h2");
+    postTitle.className = 'xssPostTitle';
+    postTitle.innerText = post.title;
+    postContainer.appendChild(postTitle);
+
+    const postAuthor = document.createElement('p');
+    postAuthor.className = 'xssPostAuthor';
+    postAuthor.innerText = post.userNames;
+    postContainer.appendChild(postAuthor);
+
+    const postContent = document.createElement('p');
+    postContent.className = 'xssPostContent';
+    postContent.innerText = post.content;
+    postContainer.appendChild(postContent);
+
+    return postContainer;
+
 }
 
 getAllPosts();

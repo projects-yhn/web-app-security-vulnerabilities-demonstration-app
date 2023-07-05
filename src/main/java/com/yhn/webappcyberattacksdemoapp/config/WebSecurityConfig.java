@@ -48,7 +48,11 @@ public class WebSecurityConfig {
                .requestMatchers("/xss/stored/**").permitAll()
                .requestMatchers("/xxe/**").permitAll()
                .requestMatchers("/xsrf/**").authenticated()
-               .requestMatchers("/images/**", "/css/**", "/js/**", "/WEB-INF/jsp/noauth/**").permitAll()
+               .requestMatchers("/images/**", "/css/**", "/js/**",
+                       "/WEB-INF/jsp/noauth/**",
+                       "/WEB-INF/jsp/search-posts-with-results.jsp",
+                       "/WEB-INF/jsp/not-found.jsp",
+                       "/WEB-INF/jsp/search-posts.jsp").permitAll()
 
                .anyRequest().authenticated()
                 .and()

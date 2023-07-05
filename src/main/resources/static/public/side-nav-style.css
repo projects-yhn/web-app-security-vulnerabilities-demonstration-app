@@ -5,8 +5,8 @@
 }
 
 .topnav {
-    background-color: blue;
-    border: 2px solid red;
+    background-color: #246ebf;;
+    /*border: 2px solid red;*/
     position: relative;
     top: 0;
     left: 0;
@@ -17,43 +17,55 @@
 
 .topnav li {
     display: inline-block;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
     list-style-type: none;
     margin: 2em 0.5em 2em 0.5em;
     padding: 3px;
 }
+.topnav li a :hover{
+    box-shadow: 2px 3px 0 0 gray;
+}
+
 
 .topnav li a {
-    color: white;
+    color: #FBFBF9;
     font-size: 1.5em;
     text-decoration: none;
+
 }
 
 .sidebar {
-    background-color: darkorange;
+    background-color: #f36534;
     width: 15%;
     height: 100%;
     overflow-y: auto;
-    border: 1px solid green;
+    /*border: 1px solid green;*/
     display: inline-block;
 
 }
 
 
+
 .attack-menu li {
     list-style-type: none;
-    border: 1px solid white;
+    margin-top: 5px;
+    margin-right: 2px;
+    margin-left: 2px;
+    padding: 5px;
+    border: 3px solid whitesmoke;
     font-size: 1.5em;
+    background-color: #f36534;
+
 }
 
 .attack-menu li a {
     text-decoration: none;
     display: block;
-    color: white;
+    color: #FBFBF9;
 }
 
 .attack-demo-window {
-    border: 5px dashed darkorchid;
+    /*border: 5px dashed darkorchid;*/
     position: fixed;
     width: 100%;
     height: 100%;
@@ -64,5 +76,100 @@
     width: 85%;
     display: inline-block;
     position: absolute;
-    border: 5px solid crimson;
+    /*border: 5px solid crimson;*/
 }
+.progress-and-help {
+    text-align: right;
+}
+
+.tooltip {
+    background-color: rgb(4, 141, 227);
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 5px;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 750px;
+    background-color: rgb(85, 85, 85);
+    color: rgb(255, 255, 255);
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    right: 50%;
+    margin-right: -60px;
+    opacity: 0;
+    padding: 5px 5px 5px 7px;
+    border-radius: 6px;
+    transition: opacity 0.3s ease 0s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    margin-right: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*.tooltip {*/
+/*    background-color: grey;*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    border-bottom: 1px dotted black; !* If you want dots under the hoverable text *!*/
+/*}*/
+
+/*!* Tooltip text *!*/
+/*.tooltip .tooltiptext {*/
+/*    visibility: hidden;*/
+/*    width: 700px;*/
+/*    background-color: #555;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    padding: 5px 0;*/
+/*    border-radius: 6px;*/
+
+/*    !* Position the tooltip text *!*/
+/*    position: absolute;*/
+/*    z-index: 1;*/
+/*    bottom: 125%;*/
+/*    right: 50%;*/
+/*    margin-right: -60px;*/
+
+/*    !* Fade in tooltip *!*/
+/*    opacity: 0;*/
+/*    transition: opacity 0.3s;*/
+/*}*/
+
+/*!* Tooltip arrow *!*/
+/*.tooltip .tooltiptext::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    right: 10%;*/
+/*    margin-right: -5px;*/
+/*    border-width: 5px;*/
+/*    border-style: solid;*/
+/*    border-color: #555 transparent transparent transparent;*/
+/*}*/
+
+/*!* Show the tooltip text when you mouse over the tooltip container *!*/
+/*.tooltip:hover .tooltiptext {*/
+/*    visibility: visible;*/
+/*    opacity: 1;*/
+/*}*/

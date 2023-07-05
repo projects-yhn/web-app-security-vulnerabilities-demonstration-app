@@ -9,7 +9,7 @@
 
 .myDiv {
     /*width: 340px;*/
-    background-color: blue;
+    background-color: #242B64;
     /*height: 12px;*/
     border: 1px solid black;
 }
@@ -47,16 +47,21 @@
 /*    text-align: right;*/
 /*}*/
 
-.productData {
-    margin: 3px;
-    border: 1px solid cadetblue;
-}
 
-.product {
-    padding: 1px;
-    margin: 1px;
-    border: 1px solid red;
-}
+
+
+/*.productData {*/
+/*    margin: 3px;*/
+/*    border: 1px solid cadetblue;*/
+/*}*/
+
+/*.product {*/
+/*    padding: 1px;*/
+/*    margin: 1px;*/
+/*    border: 1px solid red;*/
+/*}*/
+
+
 
 /*.tooltip {*/
 /*    background-color: grey;*/
@@ -105,58 +110,65 @@
 /*    opacity: 1;*/
 /*}*/
 
-.productImage {
-    border: 2px solid blue;
-    text-align: left;
-}
 
-.productName {
-    font-size: 26px;
-    font-weight: bold;
-    border: 2px solid deeppink;
-}
 
-.productNameContainer {
-    border: 2px solid green;
-    display: inline-block;
 
-}
 
-.price {
-    font-size: 20px;
-    color: red;
-    font-weight: bold;
-    border: 2px solid darkblue;
-}
 
-.priceContainer {
-    border: 2px solid orange;
-    display: inline-block;
 
-}
 
-.description {
-    font-size: 20px;
-    color: black;
-    font-weight: bold;
-    border: 2px solid darkred;
-}
+/*.productImage {*/
+/*    border: 2px solid blue;*/
+/*    text-align: left;*/
+/*}*/
 
-.descriptionContainer {
-    border: 2px solid orange;
-    display: inline-block;
-}
+/*.productName {*/
+/*    font-size: 26px;*/
+/*    font-weight: bold;*/
+/*    border: 2px solid deeppink;*/
+/*}*/
 
-.postData {
-    margin: 3px;
-    border: 1px solid cadetblue;
-}
+/*.productNameContainer {*/
+/*    border: 2px solid green;*/
+/*    display: inline-block;*/
 
-.post {
-    padding: 1px;
-    margin: 1px;
-    border: 1px solid red;
-}
+/*}*/
+
+/*.price {*/
+/*    font-size: 20px;*/
+/*    color: red;*/
+/*    font-weight: bold;*/
+/*    border: 2px solid darkblue;*/
+/*}*/
+
+/*.priceContainer {*/
+/*    border: 2px solid orange;*/
+/*    display: inline-block;*/
+
+/*}*/
+
+/*.description {*/
+/*    font-size: 20px;*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*    border: 2px solid darkred;*/
+/*}*/
+
+/*.descriptionContainer {*/
+/*    border: 2px solid orange;*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.postData {*/
+/*    margin: 3px;*/
+/*    border: 1px solid cadetblue;*/
+/*}*/
+
+/*.post {*/
+/*    padding: 1px;*/
+/*    margin: 1px;*/
+/*    border: 1px solid red;*/
+/*}*/
 
 * {
     margin: 0;

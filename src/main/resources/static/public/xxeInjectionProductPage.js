@@ -1,6 +1,13 @@
 const APP_URL = 'http://localhost:8080';
 const container = document.getElementById("xxe-injection-product-container");
 let selectedProduct = null;
+const hintButton = document.getElementById("sqli-hints");
+const hintText = document.getElementById("hint-text");
+const xxeHint = `Open the browser inspector. Find the tab where the javascript files are located. Find the line in the code where data is prepared to be sent to the server and edit it so that you can read information from a file that you cannot access through the web client.`+
+    `Use: <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE yhn [ <!ENTITY xxe SYSTEM "file:///C:%5CUsers%5CYalchan%20Niyaziev%5CDocuments%5Cyhn_projects%5CMaster_CyberSecurity%5Cweb-app-security-vulnerabilities-demonstration-app%5CfakeCredentials%5Cpasswords.yaml"> ]><Product>`;
+
+hintText.textContent = xxeHint;
+
 let product = {
     id: null,
     productName: null,
@@ -26,53 +33,69 @@ const getProductInfo = () => {
 }
 
 const displayProduct = (id, name, imageUrl, price, description) => {
+    const imageAndButtonsContainer = document.createElement("div");
+    imageAndButtonsContainer.className = "buttonsAndImageContainer";
+
     const imageContainer = document.createElement("div");
-    imageContainer.className = 'productImage';
-    const image = document.createElement('img');
-    image.src = imageUrl;
-    imageContainer.appendChild(image);
-
-    const productNameContainer = document.createElement("div");
-    const productNameSpan = document.createElement("span");
-    productNameSpan.textContent = name;
-    productNameSpan.id = 'productName';
-    productNameSpan.className = 'productName editable'
-    productNameContainer.appendChild(productNameSpan);
-    productNameContainer.className = 'productNameContainer';
-
-    const priceContainer = document.createElement("div");
-    const priceSpan = document.createElement("span");
-    priceSpan.textContent = price;
-    priceSpan.id = 'price';
-    priceSpan.className = 'price editable'
-    priceContainer.appendChild(priceSpan);
-    priceContainer.className = 'priceContainer';
-
-    const descriptionContainer = document.createElement("div");
-    const descriptionSpan = document.createElement("span");
-    descriptionSpan.textContent = description;
-    descriptionSpan.id = 'description';
-    descriptionSpan.className = 'description editable'
-    descriptionContainer.appendChild(descriptionSpan);
-    descriptionContainer.className = 'descriptionContainer';
+    imageContainer.className = 'selectedProductImage';
+    const productImage = document.createElement('img');
+    productImage.src = imageUrl;
+    imageContainer.appendChild(productImage);
 
     const editButton = document.createElement("button");
     editButton.id = "editButton";
+    editButton.className = "xxeButton";
     editButton.textContent = "Edit";
     editButton.addEventListener('click', editButtonClicked);
 
     const removeButton = document.createElement("button");
     removeButton.id = "removeButton";
+    removeButton.className = "xxeButton";
     removeButton.textContent = "Remove Product";
     removeButton.addEventListener('click', removeButtonClicked);
 
-    container.appendChild(imageContainer);
-    container.appendChild(productNameContainer);
-    container.appendChild(priceContainer);
-    container.appendChild(descriptionContainer);
-    container.appendChild(editButton);
-    container.appendChild(removeButton);
+    const buttonsContainer = document.createElement("div");
+    buttonsContainer.className = "buttonsContainer";
+    buttonsContainer.appendChild(editButton);
+    buttonsContainer.appendChild(removeButton);
 
+    imageAndButtonsContainer.appendChild(imageContainer);
+    imageAndButtonsContainer.appendChild(buttonsContainer)
+
+
+    const productTextContainer = document.createElement("div");
+    productTextContainer.className = "productTextContainer";
+
+    const productNameContainer = document.createElement("h3");
+    productNameContainer.textContent = name;
+    productNameContainer.id = 'productName';
+    productNameContainer.className = 'selectedProductName editable'
+    productTextContainer.appendChild(productNameContainer);
+    // productNameContainer.className = 'selectedProductNameContainer';
+
+
+
+    const descriptionContainer = document.createElement("p");
+    descriptionContainer.textContent = description;
+    descriptionContainer.id = 'description';
+    descriptionContainer.className = 'selectedProductDescription editable'
+    productTextContainer.appendChild(descriptionContainer);
+
+    // descriptionContainer.appendChild(descriptionSpan);
+    // descriptionContainer.className = 'selectedProductDescriptionContainer';
+
+    // const priceContainer = document.createElement("div");
+    const priceContainer = document.createElement("h4");
+    priceContainer.textContent = `${price}$`;
+    priceContainer.id = 'price';
+    priceContainer.className = 'selectedProductPrice editable'
+    productTextContainer.appendChild(priceContainer);
+
+    // priceContainer.appendChild(priceSpan);
+    // priceContainer.className = 'selectedProductPriceContainer';
+
+    container.appendChild(imageAndButtonsContainer);
+    container.appendChild(productTextContainer);
 }
 
 const editButtonClicked = () => {
@@ -80,9 +103,14 @@ const editButtonClicked = () => {
     const removeButton = document.getElementById('removeButton');
     const editableData = document.querySelectorAll('.editable');
     for (editable of editableData) {
-        const editableValue = editable.innerText;
+        let editableValue = editable.innerText;
+        if (editableValue.endsWith('$')) {
+            editableValue = editableValue.replace(`$`, '');
+        }
         const inputField = document.createElement('input');
+        inputField.className = "editProductInput";
         inputField.value = editableValue;
+        inputField.style.width = `${editableValue.length * 10}px`;
         inputField.type = 'text';
         inputField.name = editable.id;
         inputField.id = `${editable.id}-input`
@@ -117,7 +145,7 @@ const cancelEditingButtonCLicked = () => {
                 break;
             }
             case 'price': {
-                editable.innerText = product.price ;
+                editable.innerText = `${product.price}$` ;
                 break;
             }
         }
@@ -166,7 +194,7 @@ const sendProductUpdateRequest = event => {
                     break;
                 }
                 case 'price': {
-                    editable.innerText = product.price ;
+                    editable.innerText =`${product.price}$` ;
                     break;
                 }
             }

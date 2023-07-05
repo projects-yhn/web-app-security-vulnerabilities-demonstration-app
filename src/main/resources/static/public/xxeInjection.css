@@ -1,38 +1,41 @@
 
-.pageHeader{
+.pageHeader {
     color: rgb(252, 99, 88);
-    border: 2px solid purple;
-    padding-left: 1em;
+    /*border: 2px solid purple;*/
+    padding: 0.5em 0.5em 0.5em 1em;
+    border-bottom: 3px solid grey;
+
 }
 
-.productImage{
+.productImage {
     width: 150px;
     height: 150px;
-    /*border: 2px solid blue;*/
+    border: 1px solid lightgrey;
 }
 
-.productText{
+.productText {
     flex-grow: 1;
     padding: 2px;
     /*border: 2px solid red;*/
 }
 
-.productTitle{
-    padding: 0 3px 3px 3px ;
+.productTitle {
+    padding: 0 3px 3px 3px;
 }
 
-.productCategory{
-    padding: 0 3px 3px 3px ;
+.productCategory {
+    padding: 0 3px 3px 3px;
 }
 
-.productDescription{
-    padding: 0 3px 3px 3px ;
+.productDescription {
+    padding: 0 3px 3px 3px;
 }
 
-.productPrice{
+.productPrice {
     text-align: right;
     color: rgb(252, 99, 88);
-    border: 2px solid darkgreen;
+    /*border: 2px solid darkgreen;*/
+    border-top: 3px solid grey;
     padding-top: 1em;
     padding-right: 0.5em;
 }
@@ -46,7 +49,7 @@
     cursor: pointer;
 }
 
-.product:hover{
+.product:hover {
     box-shadow: 2px 3px 0 0 gray;
 }
 
@@ -59,55 +62,87 @@
 }
 
 
-.progress-and-help{
-    border: 3px solid darkblue;
-    text-align: right;
-}
-
-.tooltip {
-    background-color: grey;
-    position: relative;
+.buttonsAndImageContainer {
+    /*border: 3px solid yellow;*/
+    padding-left: 0.5em;
     display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    height: 100%;
+    width: 30%;
+
+
 }
 
-/* Tooltip text */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 700px;
-    background-color: #555;
-    color: #fff;
+.selectedProductImage {
+    width: 350px;
+    height: 350px;
+    border: 2px solid lightgrey;
+    margin-bottom: 10px;
+    /*text-align: left;*/
+}
+
+.selectedProductImage img {
+    height: 100%;
+    width: 100%;
+}
+
+.buttonsContainer {
+    /*border: 3px dashed orange;*/
+    display: flex;
+
+}
+
+.xxeButton {
+    margin: 2px;
+    height: 40px;
+    width: 130px;
+    font-size: 17px;
+    border-radius: 10%;
     text-align: left;
-    padding: 5px 5px 5px 7px;
-    border-radius: 6px;
-
-    /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    right: 50%;
-    margin-right: -60px;
-
-    /* Fade in tooltip */
-    opacity: 0;
-    transition: opacity 0.3s;
 }
 
-/* Tooltip arrow */
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    right: 10%;
-    margin-right: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+.productTextContainer {
+    flex-grow: 1;
+    /*border: 3px solid darkblue;*/
+    height: 100%;
+    width: 70%;
+    padding: 5px;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
+.selectedProductName {
+    font-size: 26px;
+    font-weight: bold;
+    /*border: 2px solid deeppink;*/
+    border-bottom: 1px solid grey;
+    padding: 5px;
+    height: 50px;
+
 }
 
+.selectedProductPrice {
+    text-align: right;
+    padding: 5px 10px 5px 5px;
+    font-size: 20px;
+    color: #f36534;;
+    font-weight: bold;
+    /*border: 2px solid darkblue;*/
+    height: 30px;
+
+}
+
+.selectedProductDescription {
+    font-size: 18px;
+    color: black;
+    /*border: 2px solid darkred;*/
+    border-bottom: 1px solid grey;
+
+    padding: 5px;
+    height: 70px;
+}
+
+.editProductInput {
+    padding: 5px;
+}
+
+#xxe-injection-product-container {
+    display: flex;
+}
