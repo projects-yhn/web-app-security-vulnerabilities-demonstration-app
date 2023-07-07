@@ -1,4 +1,4 @@
-package com.yhn.webappcyberattacksdemoapp.xss;
+package com.yhn.webappcyberattacksdemoapp.xss.service;
 
 import com.yhn.webappcyberattacksdemoapp.xss.model.PostDto;
 import com.yhn.webappcyberattacksdemoapp.xss.model.entity.Post;

@@ -1,5 +1,6 @@
-package com.yhn.webappcyberattacksdemoapp.xss;
+package com.yhn.webappcyberattacksdemoapp.xss.controller;
 
+import com.yhn.webappcyberattacksdemoapp.xss.service.ReflectedXssService;
 import com.yhn.webappcyberattacksdemoapp.xss.model.PostDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

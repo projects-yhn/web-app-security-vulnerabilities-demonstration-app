@@ -1,4 +1,4 @@
-package com.yhn.webappcyberattacksdemoapp.xss;
+package com.yhn.webappcyberattacksdemoapp.xss.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

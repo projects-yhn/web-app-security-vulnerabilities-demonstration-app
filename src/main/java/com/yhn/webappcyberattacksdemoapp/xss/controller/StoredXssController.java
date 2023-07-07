@@ -1,5 +1,6 @@
-package com.yhn.webappcyberattacksdemoapp.xss;
+package com.yhn.webappcyberattacksdemoapp.xss.controller;
 
+import com.yhn.webappcyberattacksdemoapp.xss.service.StoredXssService;
 import com.yhn.webappcyberattacksdemoapp.xss.model.AddPostCommentRequest;
 import com.yhn.webappcyberattacksdemoapp.xss.model.AllPostsResponse;
 import com.yhn.webappcyberattacksdemoapp.xss.model.CommentDto;
